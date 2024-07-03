@@ -1,58 +1,119 @@
-import React from 'react';
 import Image from 'next/image'
+import { Input } from '@/components/ui/input';
+import logo from '@/assets/images/login/afore.jpeg';
+import { Button } from '@/components/ui/button';
+import { requestImageBackground } from '@/api/auth';
 
-const Login = () => {
+const getData = async () => {
+    const response = await requestImageBackground();
+
+    return response.data;
+}
+
+const Login = async () => {
+
+    const data = await getData();
+
+    console.log('data', data.links.download);
+
     return (
         <div className="min-h-screen flex">
             {/* Left Section */}
-            <div className="w-1/2 flex items-center justify-center bg-yellow-500">
-                <div className="text-white text-center p-8">
+            <div className="w-1/2 flex items-center justify-cente" style={{
+                backgroundImage: `url(
+                    ${data.links.download === undefined ?
+                        '/assets/images/background/default.jpeg' :
+                        data.links.download
+                    })`,
+                backgroundSize: 'cover',
+                backgroundPosition: 'center',
+                backgroundRepeat: 'no-repeat',
+                height: '100vh',
+                width: '100vw',
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+                opacity: 0.8,
+            }}>
+                {/* <div className="text-white text-center p-8">
                     <h1 className="text-4xl font-bold mb-4">¡Bienvenido!</h1>
                     <h1 className="text-4xl">Ecosistema Afore Azteca</h1>
                     <br></br>
 
-                    <img className="mx-auto h-auto mb-1" src="/image/Login/gruposalinas3.jpeg" alt="Imagen de inicio de sesión" style={{ maxWidth: '150%', maxHeight: '1500px' }} />
+                    <img className="mx-auto h-auto mb-1" src="/images/login/gruposalinas3.jpeg" alt="Imagen de inicio de sesión" style={{ maxWidth: '150%', maxHeight: '1500px' }} />
 
-                </div>
+                </div> */}
             </div>
 
             {/* Right Section */}
             <div className="w-1/2 flex items-center justify-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
-                    <div className="max-w-md w-full space-y-8">
-                        <div>
-                        <img className="mx-auto h-auto mb-6" src="/image/Login/afore.jpeg" alt="Imagen de inicio de sesión" style={{ maxWidth: '80%', maxHeight: '300px' }} />
+                <div className="max-w-md w-full space-y-8">
+                    <div>
+                        <Image src={logo} alt='Afore Logo' className="mx-auto h-auto mb-6" width={250} height={250} style={{ maxWidth: '80%', maxHeight: '300px' }} />
+                        {/* <img className="mx-auto h-auto mb-6" src="/image/Login/afore.jpeg" alt="Imagen de inicio de sesión" style={{ maxWidth: '80%', maxHeight: '300px' }} /> */}
                         <div className="text-black text-center p-8">
-                        <h1 className="text-4xl font-bold mb-4">¡Bienvenido de nuevo!</h1>
-                        <p className="text-lg">Inicia sesión para continuar a tu cuenta</p>
-                    </div>
-                    <h2 className="mt-6 text-center text-2xl font-extrabold text-gray-900">Iniciar sesión</h2>
+                            <h1 className="text-4xl font-bold mb-4">¡Bienvenido!</h1>
+                            <p className="text-lg">Inicia sesión para continuar a tu cuenta</p>
+                        </div>
+                        <h2 className="mt-6 text-center text-2xl font-extrabold text-gray-900">Iniciar sesión</h2>
                     </div>
                     <form className="mt-8 space-y-6">
                         <div className="rounded-md shadow-sm -space-y-px">
                             <div>
                                 <label htmlFor="username" className="sr-only">Usuario</label>
-                                <input id="username" name="username" type="text" required className="appearance-none rounded-lg relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" placeholder="Usuario" />
+                                <Input
+                                    id="username"
+                                    name="username"
+                                    type="text"
+                                    required
+                                    className="appearance-none rounded-lg relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
+                                    placeholder="Usuario"
+                                />
+                                {/* <input id="username" name="username" type="text" required className="appearance-none rounded-lg relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" placeholder="Usuario" /> */}
                             </div>
                             <br></br>
                             <div>
                                 <label htmlFor="password" className="sr-only">Contraseña</label>
-                                <input id="password" name="password" type="password" required className="appearance-none rounded-lg relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" placeholder="Contraseña" />
+                                <Input
+                                    id="password"
+                                    name="password"
+                                    type="password"
+                                    security={'true'}
+                                    required
+                                    className="appearance-none rounded-lg relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
+                                    placeholder="Contraseña"
+                                />
+                                {/* <input id="password" name="password" type="password" required className="appearance-none rounded-lg relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" placeholder="Contraseña" /> */}
                             </div>
                         </div>
 
                         <div>
-                            <button 
-                                type="submit" 
+                            <Button
+                                className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-black hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                                variant="outline"
+                            >
+                                Iniciar sesión
+                            </Button>
+
+                            {/* <button
+                                type="submit"
                                 className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-black hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
                                 Iniciar sesión
-                            </button>                   
+                            </button> */}
                         </div>
                         <div>
-                            <button 
-                                type="submit" 
+                            <Button
+                                type="submit"
+                                className="group relative w-full flex justify-center py-2 px-3 border border-transparent text-sm font-medium rounded-md text-black bg-gray-300 hover:bg-gray-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                                variant="outline"
+                            >
+                                Olvidé Contraseña
+                            </Button>
+                            {/* <button
+                                type="submit"
                                 className="group relative w-full flex justify-center py-2 px-3 border border-transparent text-sm font-medium rounded-md text-black bg-gray-300 hover:bg-gray-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
                                 Olvidé Contraseña
-                            </button>                
+                            </button> */}
                         </div>
                     </form>
                 </div>
