@@ -10,7 +10,7 @@ export function middleware(request: NextRequest) {
 
     console.log('token', token);
 
-    if (token) {
+    /*if (token) {
         //@ts-ignore
         const decodedToken: any = jwtDecode(token.value);
 
@@ -37,7 +37,7 @@ export function middleware(request: NextRequest) {
         }
 
         return NextResponse.next();
-    }
+    }*/
 }
 
 export const config = {

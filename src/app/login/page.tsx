@@ -39,6 +39,7 @@ const Login = async () => {
                         <Image src={logo} alt='Afore Logo' className="mx-auto h-auto mb-6" width={250} height={250} style={{ maxWidth: '80%', maxHeight: '300px' }} />
                         <div className="text-black text-center p-8">
                             <h1 className="text-4xl font-bold mb-4">¡Bienvenido!</h1>
+                            <h1 className="text-2xl font-bold mb-4">Regulatorios Afore Azteca</h1>
                             <p className="text-lg">Inicia sesión para continuar a tu cuenta</p>
                         </div>
                         <h2 className="mt-6 text-center text-2xl font-extrabold text-gray-900">Iniciar sesión</h2>
