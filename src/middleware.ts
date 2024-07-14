@@ -38,8 +38,15 @@ export function middleware(request: NextRequest) {
 
         return NextResponse.next();
     }*/
+
+    if (url.pathname === '/') {
+        url.pathname = '/dashboard';
+        return NextResponse.redirect(url);
+    }
+
+    return NextResponse.next();
 }
 
 export const config = {
-    matcher: ['/login', '/', '/((?!api|_next|.*\\..*).*)'],
+    // matcher: ['/login', '/', '/((?!api|_next|.*\\..*).*)'],
 };

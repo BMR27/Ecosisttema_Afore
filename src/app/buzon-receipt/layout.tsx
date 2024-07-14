@@ -6,7 +6,7 @@ export const metadata: Metadata = {
     description: "Panel Adminstrativo para Buzon de Archivos",
 };
 
-export default function DashboardLayout({ children }: { children: React.ReactNode }) {
+export default function BuzonReceiptLayout({ children }: { children: React.ReactNode }) {
     return (
         <div className="bg-white text-base dark:bg-neutral-900 text-neutral-900 dark:text-neutral-200 min-h-screen">
             <div className="flex">
