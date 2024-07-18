@@ -46,7 +46,7 @@ const Sidebar: React.FC = () => {
           <nav className="mt-4">
             <Link href="/dashboard" className="flex items-center gap-3 rounded-lg px-3 py-2 text-muted-foreground hover:text-primary">
               <Home className="h-4 w-4" />
-              Dashboard
+              Inicio
             </Link>
             <div className="mt-1">
               <button
@@ -54,7 +54,7 @@ const Sidebar: React.FC = () => {
                 className="flex items-center w-full gap-3 rounded-lg px-3 py-2 text-muted-foreground hover:text-primary focus:outline-none"
               >
                 <Package className="h-4 w-4" />
-                Buzón{' '}
+                Buzón de Archivos{' '}
                 {openSubItems['buzon'] ? (
                   <ChevronUp className="h-4 w-4 ml-auto" />
                 ) : (

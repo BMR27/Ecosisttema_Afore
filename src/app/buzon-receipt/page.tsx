@@ -40,6 +40,10 @@ const BuzonRecepcion = () => {
             <main className="flex flex-1 flex-col gap-4 p-4 lg:gap-6 lg:p-6">
                 <div className="flex items-center">
                     <form>
+                    <h3 className="text-2xl font-bold tracking-tight">
+                        Panel Administrativo para Buzon de Archivos
+                    </h3>
+                    <br></br>
                         <div className="relative">
                             <Search className="absolute left-2.5 top-2.5 h-6 w-6 text-muted-foreground" />
                             <Input
