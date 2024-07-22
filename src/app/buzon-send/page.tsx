@@ -188,9 +188,7 @@ const BuzonEnvio = () => {
       <TableCell className="text-center">repore/envio/355/</TableCell>
       <TableCell className="text-center">2024/06/18 10:00</TableCell>
       <TableCell className="text-center">
-            <Button variant="primary" size="small" className="ml-2">
-                Buscar
-            </Button>
+           
         </TableCell>
       
     </TableRow>
@@ -220,8 +218,6 @@ const BuzonEnvio = () => {
 
   </TableBody>
 </Table>
-
-
 
             </main>
         </>
