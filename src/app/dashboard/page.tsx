@@ -34,6 +34,9 @@ import {
 import { Input } from "@/components/ui/input";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 
+import Image from 'next/image';
+
+
 export default function Page() {
   return (
     <>
@@ -44,30 +47,25 @@ export default function Page() {
                   Panel Administrativo para Buzon de Archivos
                   </h3>
               <br></br>
-            <div className="relative">
+              <div className="centered-div">
+                <Image
+                  src="/assets/images/background/Afore_2.jpg"
+                  alt=""
+                  width={2500}
+                  height={100}
+                />
+              </div>
+           {/* <div className="relative">
               <Search className="absolute left-2.5 top-2.5 h-6 w-6 text-muted-foreground" />
               <Input
                 type="search"
                 placeholder="Search products..."
                 className="w-full md:w-96 lg:w-128 appearance-none bg-background pl-10 pr-4 shadow-none"
               />
-            </div>
+            </div> */}
           </form>
         </div>
-        <div
-          className="flex flex-1 items-center justify-center rounded-lg border border-dashed shadow-sm"
-          x-chunk="dashboard-02-chunk-1"
-        >
-          <div className="flex flex-col items-center gap-1 text-center">
-            <h3 className="text-2xl font-bold tracking-tight">
-              You have no products
-            </h3>
-            <p className="text-sm text-muted-foreground">
-              You can start selling as soon as you add a product.
-            </p>
-            <Button className="mt-4">Add Product</Button>
-          </div>
-        </div>
+        
       </main>
     </>
   );

@@ -18,6 +18,9 @@ const config = {
       },
     },
     extend: {
+      boxShadow: {
+        'green-500': '0 4px 6px rgba(0, 255, 0, 0.5)', // Puedes ajustar el valor según tu preferencia
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
@@ -27,6 +30,12 @@ const config = {
         primary: {
           DEFAULT: "hsl(var(--primary))",
           foreground: "hsl(var(--primary-foreground))",
+        },
+        colors: {
+          'font-gray': '#515151',
+          'background-gray': '#EBEBEB',
+          'background-white': '#FFFFFF',
+          'shadow-green': '#00FF00', // Añade el color verde para la sombra
         },
         secondary: {
           DEFAULT: "hsl(var(--secondary))",
