@@ -1,9 +1,14 @@
 # Usa una imagen base de Node.js
+<<<<<<< HEAD
 FROM node:18 AS build
+=======
+FROM node:18-alpine
+>>>>>>> 7802a7b6e9a23e1267cc18796040aaa6c5142b0c
 
 # Establece el directorio de trabajo
 WORKDIR /app
 
+<<<<<<< HEAD
 # Copia el package.json y el package-lock.json
 COPY package*.json ./
 
@@ -37,4 +42,22 @@ COPY --from=build /app/node_modules node_modules
 EXPOSE 3000
 
 # Define el comando para iniciar la aplicación
+=======
+# Copia package.json y package-lock.json
+COPY package*.json ./
+
+# Copia el directorio node_modules local al contenedor
+COPY node_modules ./node_modules
+
+# Copia el resto de los archivos de la aplicación
+COPY . .
+
+# Construye la aplicación
+RUN npm run build
+
+# Expone el puerto 3000
+EXPOSE 3000
+
+# Comando para ejecutar la aplicación
+>>>>>>> 7802a7b6e9a23e1267cc18796040aaa6c5142b0c
 CMD ["npm", "start"]
